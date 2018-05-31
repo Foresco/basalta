@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Тестовя страница JS</title>
+    <link rel="stylesheet" type="text/css" href="css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/bslt.page.js"></script>
+    <script type="text/javascript" src="js/bslt.dashboards.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // Перечень панелей
+            panels = [south_panel, east_panel, west_panel, center_panel];
+            // Создаем класс Страница
+            var page = new BsltPage(2, panels);
+            // Загружаем панели
+            page.loadPanels();    
+        });
+    </script>
+</head>
+<body>
+    <div class="easyui-layout" style="width:100%; height:550px;">
+        <div data-options="region: 'south', split:true" style="height:50px;" id="south_panel"></div>
+        <div data-options="region: 'east', split:true" title="Дополнительно" style="width:305px;" id="east_panel"></div>
+        <div data-options="region: 'west', split:true" title="Фильтры" style="width:200px;" id="west_panel"></div>
+        <div data-options="region: 'center'" title="Все свойства:" id="center_panel"></div>
+    </div>
+</body>
+</html>
